@@ -1,4 +1,4 @@
 git add .
-git commit -m "expo for web -> installed | Env. Codespace configured"
-git push -u origin main
+git commit -m "Next Lesson: Organizando o projeto"
+git push
 git status
