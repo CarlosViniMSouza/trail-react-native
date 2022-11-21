@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <Text style={styles.eventName}>
-                React Native Application
+                Event Name
             </Text>
 
             <Text style={styles.eventDate}>
