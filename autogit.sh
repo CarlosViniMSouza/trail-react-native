@@ -1,4 +1,4 @@
 git add .
-git commit -m "Next Lesson: Utilizando Propriedades no Componente"
+git commit -m "README.md -> add"
 git push
 git status
