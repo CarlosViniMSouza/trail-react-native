@@ -1,4 +1,4 @@
 git add .
-git commit -m "README.md -> add"
+git commit -m "Prox. Aula: Função Remover"
 git push
 git status
