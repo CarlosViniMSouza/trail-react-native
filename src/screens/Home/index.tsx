@@ -11,8 +11,14 @@ import { styles } from "./styles";
 import { Participant } from '../../components/Participant';
 
 export default function Home() {
-    function handleParticipantAdd() {
-        console.log("Participant added");
+    const participants = ['Diego', 'Rodrigo', 'Mayk', 'Jakelliny', 'Biro', 'Carlos'];
+
+    function handleParticipantAdd(name: string) {
+        console.log(`Participant ${name} added`);
+    }
+
+    function handleParticipantRemove(name: string) {
+        console.log(`Participant ${name} deleted`);
     }
 
     return (
@@ -35,7 +41,9 @@ export default function Home() {
 
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={handleParticipantAdd}>
+                    onPress={
+                        () => handleParticipantAdd("Participant")
+                    }>
                     <Text
                         style={styles.buttonText}>
                         (+)
@@ -43,8 +51,11 @@ export default function Home() {
                 </TouchableOpacity>
             </View>
 
-            <Participant name="Carlos" />
-            <Participant name="Vinicius" />
+            <Participant
+                name="Carlos"
+                onRemove={
+                    () => handleParticipantRemove("Carlos")
+                } />
         </View>
     );
 }
