@@ -1,4 +1,4 @@
 git add .
-git commit -m "Next Lesson: Botão de Adicionar"
+git commit -m "Next Lesson: Entendendo Componetização"
 git push
 git status
