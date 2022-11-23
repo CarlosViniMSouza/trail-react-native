@@ -4,7 +4,8 @@ import {
     Text, View,
     TextInput,
     TouchableOpacity,
-    FlatList
+    FlatList,
+    Alert
 } from "react-native";
 
 import { styles } from "./styles";
@@ -14,12 +15,27 @@ import { Participant } from '../../components/Participant';
 export default function Home() {
     const participants = ['Diego', 'Rodrigo', 'Mayk', 'Jakelliny', 'Biro', 'Carlos', 'Saile', 'Rafael', 'David', 'Joe'];
 
-    function handleParticipantAdd(name: string) {
-        console.log(`Participant ${name} added`);
+    function handleParticipantAdd() {
+        if (participants.includes('Will Smith')) {
+            return Alert.alert('Participant Already Added!');
+        }
     }
 
     function handleParticipantRemove(name: string) {
-        console.log(`Participant ${name} deleted`);
+        Alert.alert(
+            'Remove',
+            `Remove the participant ${name} ?`,
+            [
+                {
+                    text: 'Yes',
+                    onPress: () => Alert.alert('Removed !')
+                },
+                {
+                    text: 'No',
+                    style: 'cancel'
+                }
+            ]
+        );
     }
 
     return (
@@ -43,7 +59,7 @@ export default function Home() {
                 <TouchableOpacity
                     style={styles.button}
                     onPress={
-                        () => handleParticipantAdd("Participant")
+                        () => handleParticipantAdd()
                     }>
                     <Text
                         style={styles.buttonText}>
@@ -60,7 +76,7 @@ export default function Home() {
                         key={item}
                         name={item}
                         onRemove={
-                            () => handleParticipantRemove("Carlos")
+                            () => handleParticipantRemove(item)
                         }
                     />
                 )}
