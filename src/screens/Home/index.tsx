@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
     Text, View,
@@ -13,12 +13,18 @@ import { styles } from "./styles";
 import { Participant } from '../../components/Participant';
 
 export default function Home() {
-    const participants = ['Diego', 'Rodrigo', 'Mayk', 'Jakelliny', 'Biro', 'Carlos', 'Saile', 'Rafael', 'David', 'Joe'];
+    const [participants, setParticipants] = useState<string[]>([]);
+
+    const [participantName, setParticipantName] = useState('');
 
     function handleParticipantAdd() {
-        if (participants.includes('Will Smith')) {
+        if (participants.includes(participantName)) {
             return Alert.alert('Participant Already Added!');
         }
+
+        setParticipants(prevState => [...prevState, participantName]);
+
+        setParticipantName('');
     }
 
     function handleParticipantRemove(name: string) {
@@ -54,6 +60,8 @@ export default function Home() {
                     placeholder="Participant Name"
                     placeholderTextColor="#6B6B6B"
                     keyboardType="email-address"
+                    onChangeText={setParticipantName}
+                    value={participantName}
                 />
 
                 <TouchableOpacity
