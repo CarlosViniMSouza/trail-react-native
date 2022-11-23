@@ -34,7 +34,11 @@ export default function Home() {
             [
                 {
                     text: 'Yes',
-                    onPress: () => Alert.alert('Removed !')
+                    onPress: () => setParticipants(
+                        prevState => prevState.filter(
+                            participant => participant !== name
+                        )
+                    )
                 },
                 {
                     text: 'No',
